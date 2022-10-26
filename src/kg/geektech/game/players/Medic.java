@@ -9,11 +9,12 @@ public class Medic extends Hero {
     }
 
     @Override
-    public void applySuperPower(Boss boss, Hero[] heroes) {
+    public int applySuperPower(Boss boss, Hero[] heroes) {
         for (int i = 0; i < heroes.length; i++) {
             if (heroes[i].getHealth() > 0 && this != heroes[i]) {
                 heroes[i].setHealth(heroes[i].getHealth() + this.healPoints);
             }
         }
+        return 0;
     }
 }

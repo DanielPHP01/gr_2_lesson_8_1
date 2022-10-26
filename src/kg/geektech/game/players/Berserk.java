@@ -10,15 +10,16 @@ public class Berserk extends Hero {
     }
 
     @Override
-    public void applySuperPower(Boss boss, Hero[] heroes) {
+    public int applySuperPower(Boss boss, Hero[] heroes) {
         if (boss.getDamage() != 0) {
-            setSavedDamage(RPG_Game.random.nextInt(boss.getDamage()) + 1) ;
+            setSavedDamage(RPG_Game.random.nextInt(boss.getDamage()) + 1);
             if (boss.getHealth() > 0 && this.getHealth() > 0)
                 this.setHealth(this.getHealth() - savedDamage);
-                boss.setHealth(boss.getHealth() - (savedDamage + this.getDamage()));
+            boss.setHealth(boss.getHealth() - (savedDamage + this.getDamage()));
             System.out.println(" Ragnar Работает ");
         }
 
+        return 0;
     }
 
     public void setSavedDamage(int savedDamage) {

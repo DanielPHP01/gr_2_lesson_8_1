@@ -25,7 +25,7 @@ public class Avrora extends Hero {
 
 
     @Override
-    public void applySuperPower(Boss boss, Hero[] heroes) {
+    public int applySuperPower(Boss boss, Hero[] heroes) {
         avrorasAbility();
 
         if (this.getHealth() > 0 && avrorasAbilityWasUsed <= 2 && avrorasAbilityWasUsed != 0) {
@@ -34,14 +34,14 @@ public class Avrora extends Hero {
             avrorasAbilityWasUsed++;
             System.out.println(" Avrora Исчезла!!!");
 
-        }
-        else if (avrorasAbilityWasUsed > 1 && avrorasAbilityWasUsed <= 3) {
+        } else if (avrorasAbilityWasUsed > 1 && avrorasAbilityWasUsed <= 3) {
             boss.setHealth(boss.getHealth() - (this.getDamage() + avrorasSuperDamage));
             avrorasAbilityWasUsed++;
             System.out.println(" Avrora Вернулась!!!");
         }
 
 
+        return 0;
     }
 }
 
